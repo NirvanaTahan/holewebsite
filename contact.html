@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Goalf in One</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+
+       
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(240, 240, 240, 0.9) 100%);
+    color: #555;
+    border-bottom: 2px solid #e0e0e0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar img {
+    height: 50px;
+    margin-right: 20px; 
+    transition: transform 0.3s;
+}
+
+.navbar img:hover {
+    transform: scale(1.1);
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+}
+
+.navbar ul li {
+    cursor: pointer;
+    color: #555;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.navbar ul li:hover {
+    color: #000000;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    cursor: pointer;
+    color: #555;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    background-color: unset;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #ddd;
+}
+
+.navbar .book-now {
+    padding: 10px 20px;
+    border: 2px solid #000000;
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.navbar .book-now:hover {
+    background-color: #374C58;
+    color: #fff;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: solid 2px #555;
+    border-radius: 5px;
+    outline: none;
+    background-color: #ffffff;
+    width: 300px;
+    transition: 0.3s;
+}
+
+.search-bar input::placeholder {
+    color: #aaa;
+}
+
+.search-bar button {
+    padding: 8px 10px;
+    border: none;
+    background-color: #555;
+    color: #fff;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #444;
+}
+
+        /* Contact Us Page */
+        .contact-container {
+            
+            margin-top: 280px;
+            
+            padding: 20px;
+        }
+
+        .contact-header {
+            align-content: center;
+            text-align: center;
+            margin-bottom: 40px;
+
+        }
+
+        .contact-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #003366;
+        }
+
+        .contact-header p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .contact-form .form-group {
+            flex: 1 1 calc(50% - 20px);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #003366;
+            outline: none;
+        }
+
+        .send-message-btn {
+            padding: 15px 30px;
+            background-color: #003366;
+            color: #fff;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            max-width: 300px;
+            margin-top: 20px;
+        }
+
+        .send-message-btn:hover {
+            background-color: #002244;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .contact-info div {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #003366;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .map-container {
+            margin-top: 40px;
+            width: 100%;
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: #ff6b6b;
+            margin: 0 5px;
+        }
+
+        .footer .social-icons img {
+            height: 24px;
+            margin: 0 5px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-form .form-group {
+                flex: 1 1 100%;
+            }
+        }
+        .footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.footer .footer-content p {
+    margin-bottom: 10px;
+}
+
+.footer .footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .footer-links ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.footer .footer-links ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer .footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer .newsletter form {
+    margin-top: 10px;
+}
+
+.footer .newsletter input {
+    padding: 10px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.footer .newsletter button {
+    padding: 10px 20px;
+    background-color: #f39c12;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.footer .newsletter button:hover {
+    background-color: #e67e22;
+}
+
+.footer .social-icons a {
+    margin: 0 10px;
+}
+
+.footer .social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="https://content.wepik.com/statics/47278190/preview-page0.jpg" alt="Hole in One Logo">
+        <ul>
+            <li><a href="index.html" style="text-decoration: none;color:#333">Home</a></li>
+            <div class="dropdown">
+            <button onclick="window.location.href='Facilities.html'" class="dropbtn">Facilities</button>
+            <div class="dropdown-content">
+            <a href="Facilities.html">Driving Range</a>
+            <a href="Facilities.html">Clubhouse</a>
+            <a href="Facilities.html">Restaurants</a>
+            </div>
+            </div>
+            <div class="dropdown">
+            <button onclick="window.location.href='packages.html'" class="dropbtn">Packages</button>
+            <div class="dropdown-content">
+            <a href="packages.html">Stay & Play</a>
+            <a href="packages.html">Corporate Events</a>
+            <a href="packages.html">Golf Lessons</a>
+            </div>
+            </div>
+            <li><a href="contact.html" style="text-decoration: none;color:#333">Contact Us</a></li>
+            </ul>
+            </li>
+
+        </ul>
+        <button onclick="window.location.href='Book.html'" class="book-now">Book Now</button>
+        <div class="search-bar">
+            <form onsubmit="event.preventDefault();" role="search">
+                <input id="search" type="search" placeholder="Search..." autofocus required />
+            </form>
+        </div>
+    </div>
+    
+   
+    <!-- Contact Us Section -->
+    <div class="contact-container">
+        <div class="contact-header">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need further information, feel free to reach out!</p>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject">
+                    <option value="general">General Inquiry</option>
+                    <option value="packages">Package Information</option>
+                    <option value="facilities">Facilities Inquiry</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" placeholder="Enter your message" required></textarea>
+            </div>
+            <button class="send-message-btn" type="submit">Send Message</button>
+        </div>
+
+    
+        <div class="contact-info">
+            <div>
+                <h3>Our Address</h3>
+                <p>123 Golf Avenue, Dubai, UAE</p>
+            </div>
+            <div>
+                <h3>Contact Info</h3>
+                <p>Phone: +971 123 456 789</p>
+                <p>Email: info@goalfinone.com</p>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3458.189720112243!2d55.2657957!3d25.2769878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f60a16726307f%3A0x46ebdb111ebfd64f!2sDubai%20Golf%20Club!5e0!3m2!1sen!2sin!4v1634265689201!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Goalf in One. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6M0SBKK35FgnV0k-yIIqOn0MqdfIxmEAo7Q&s" alt="Facebook"></a>
+                <a href="#"><img src="https://cdn.worldvectorlogo.com/logos/twitter-logo-2.svg" alt="Twitter"></a>
+                <a href="#"><img src="https://i.pinimg.com/736x/44/47/d7/4447d72f7d94a14bf4734f5d6e3bd231.jpg" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="newsletter">
+            <p>Sign up for our newsletter for the latest updates and promotions!</p>
+            <form action="#" method="post">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </footer>
+    
+    
+
+</body>
+</html>

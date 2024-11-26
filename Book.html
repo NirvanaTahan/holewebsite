@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now - Goalf in One</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(240, 240, 240, 0.9) 100%);
+            color: #555;
+            border-bottom: 2px solid #e0e0e0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar img {
+            height: 50px;
+            margin-right: 20px; 
+            transition: transform 0.3s;
+        }
+
+        .navbar img:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 40px;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            cursor: pointer;
+            color: #555;
+            font-size: 16px;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li:hover {
+            color: #000000;
+        }
+
+        .dropbtn {
+cursor: pointer;
+            color: #555;
+            font-size: 16px;
+            font-weight: 500;
+          border: none;
+	background-color:unset;
+}
+ 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+ 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+ 
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+ 
+.dropdown-content a:hover {background-color: #ddd;}
+ 
+.dropdown:hover .dropdown-content {display: block;}
+ 
+.dropdown:hover .dropbtn {background-color:#ddd;;}
+
+        .navbar .book-now {
+            padding: 10px 20px;
+            border: 2px solid #000000;
+            color: #000000;
+            background-color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .navbar .book-now:hover {
+            background-color: #374C58;
+            color: #fff;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            border: solid 2px #555;
+            border-radius: 5px;
+            outline: none;
+            background-color: #ffffff;
+            width: 300px;
+            transition: 0.3s;
+        }
+
+        .search-bar input::placeholder {
+            color: #aaa;
+        }
+
+        .search-bar button {
+            padding: 8px 10px;
+            border: none;
+            background-color: #555;
+            color: #fff;
+            border-radius: 5px;
+            margin-left: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #444;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 20px;
+        }
+        .heading h2 {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .booking-form label {
+            font-size: 16px;
+            color: #555;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .booking-form input, .booking-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .submit-button {
+            padding: 10px 20px;
+            background-color: #003366;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .submit-button:hover {
+            background-color: #002244;
+        }
+        .footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.footer .footer-content p {
+    margin-bottom: 10px;
+}
+
+.footer .footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .footer-links ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.footer .footer-links ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer .footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer .newsletter form {
+    margin-top: 10px;
+}
+
+.footer .newsletter input {
+    padding: 10px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.footer .newsletter button {
+    padding: 10px 20px;
+    background-color: #f39c12;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.footer .newsletter button:hover {
+    background-color: #e67e22;
+}
+
+.footer .social-icons a {
+    margin: 0 10px;
+}
+
+.footer .social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="https://content.wepik.com/statics/47278190/preview-page0.jpg" alt="Hole in One Logo">
+        <ul>
+            <li><a href="index.html" style="text-decoration: none;color:#333">Home</a></li>
+            <div class="dropdown">
+            <button onclick="window.location.href='Facilities.html'" class="dropbtn">Facilities</button>
+            <div class="dropdown-content">
+            <a href="Facilities.html">Driving Range</a>
+            <a href="Facilities.html">Clubhouse</a>
+            <a href="Facilities.html">Restaurants</a>
+            </div>
+            </div>
+            <div class="dropdown">
+            <button onclick="window.location.href='packages.html'" class="dropbtn">Packages</button>
+            <div class="dropdown-content">
+            <a href="packages.html">Stay & Play</a>
+            <a href="packages.html">Corporate Events</a>
+            <a href="packages.html">Golf Lessons</a>
+            </div>
+            </div>
+            <li><a href="contact.html" style="text-decoration: none;color:#333">Contact Us</a></li>
+            </ul>
+            </li>
+
+        </ul>
+        <button onclick="window.location.href='Book.html'" class="book-now">Book Now</button>
+        <div class="search-bar">
+            <form onsubmit="event.preventDefault();" role="search">
+                <input id="search" type="search" placeholder="Search..." autofocus required />
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="heading">
+            <h2>Book Your Five Rounds Package</h2>
+        </div>
+
+        <div class="booking-form">
+            <form action="#" method="POST">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="check-in">Check-In Date</label>
+                <input type="date" id="check-in" name="check-in" required>
+
+                <label for="check-out">Check-Out Date</label>
+                <input type="date" id="check-out" name="check-out" required>
+
+                <label for="package">Package</label>
+                <select id="package" name="package" required>
+                    <option value="five-rounds">Five Rounds</option>
+                    <option value="triple-tee">Triple Tee</option>
+                    <option value="getaway-break">Getaway Break</option>
+                </select>
+
+                <a href="#" class="submit-button">Submit Booking</a>
+            </form>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Goalf in One. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6M0SBKK35FgnV0k-yIIqOn0MqdfIxmEAo7Q&s" alt="Facebook"></a>
+                <a href="#"><img src="https://cdn.worldvectorlogo.com/logos/twitter-logo-2.svg" alt="Twitter"></a>
+                <a href="#"><img src="https://i.pinimg.com/736x/44/47/d7/4447d72f7d94a14bf4734f5d6e3bd231.jpg" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="newsletter">
+            <p>Sign up for our newsletter for the latest updates and promotions!</p>
+            <form action="#" method="post">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </footer>
+    
+</body>
+</html>
